@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2>{{ user.username }}'s Art Gallery</h2>
+    <p>{{ user.bio }}</p>
+
+    <!-- Social Media Links -->
+    <div class="social-media mb-4">
+        {% if user.facebook_url %}
+            <a href="{{ user.facebook_url }}" target="_blank" class="btn btn-outline-primary me-2">
+                <img src="{{ url_for('static', filename='icons/facebook.svg') }}" alt="Facebook" style="width: 24px; height: 24px;">
+                Facebook
+            </a>
+        {% endif %}
+        {% if user.instagram_url %}
+            <a href="{{ user.instagram_url }}" target="_blank" class="btn btn-outline-danger">
+                <img src="{{ url_for('static', filename='icons/instagram.svg') }}" alt="Instagram" style="width: 24px; height: 24px;">
+                Instagram
+            </a>
+        {% endif %}
+    </div>
+
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ url_for('uploaded_file', filename=image.image_url) }}" class="d-block w-100" style="height: 90vh; object-fit: cover;" alt="{{ image.image_name }}" onclick="openFullScreenModal('{{ url_for('uploaded_file', filename=image.image_url) }}', '{{ image.image_name }}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ image.image_name }}</h5>
+                        <a href="#" class="btn btn-primary" onclick="likeImage({{ image.id }})">Like</a>
+                        <p class="mt-2">Likes: {{ image.like_count }}</p>
+                        <a href="#" class="btn btn-secondary mt-2" onclick="openCommentModal({{ image.id }})">Comments</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
+    <div id="fullScreenModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fullScreenModalTitle"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="fullScreenImage" class="img-fluid" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comments</h5>
+                    <button type="button" class="close" onclick="window.location.href='{{ url_for('public_profile', user_id=user.id) }}';" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="commentSection"></div>
+                    <form id="commentForm" method="post">
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment_text" placeholder="Add a comment..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openFullScreenModal(imageUrl, imageName) {
+        document.getElementById('fullScreenImage').src = imageUrl;
+        document.getElementById('fullScreenModalTitle').innerText = imageName;
+        $('#fullScreenModal').modal('show');
+    }
+
+    function likeImage(imageId) {
+        // AJAX call to your Flask backend to like the image
+    }
+
+    function openCommentModal(imageId) {
+        // Load comments for the specific image and open the comment modal
+        $('#commentModal').modal('show');
+    }
+</script>
+{% endblock %}

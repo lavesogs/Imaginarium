@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Upload More Images{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2>Upload More Images</h2>
+    <p>Would you like to upload another image?</p>
+    <form action="/upload_more" method="post">
+        <button type="submit" class="btn btn-primary" name="yes">Yes</button>
+        <button type="submit" class="btn btn-secondary" name="no">No</button>
+    </form>
+</div>
+{% endblock %}

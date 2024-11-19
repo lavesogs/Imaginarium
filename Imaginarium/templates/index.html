@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2>Welcome to Imaginarium, {{ user.username }}!</h2>
+    <p>Your space to express yourself through images.</p>
+    <div class="mb-3">
+        <a href="/upload" class="btn btn-primary">Click here to start uploading your art!</a>
+        <a href="/explore" class="btn btn-secondary">Check out other artists</a>
+    </div>
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ url_for('uploaded_file', filename=image.image_url) }}" class="d-block w-100 carousel-img" style="height: 90vh; object-fit: cover; margin-top: 5vh; margin-bottom: 5vh;" alt="{{ image.image_name }}" onclick="openFullScreenModal('{{ url_for('uploaded_file', filename=image.image_url) }}', '{{ image.image_name }}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ image.image_name }}</h5>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
+    <div id="fullScreenModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fullScreenModalTitle"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="fullScreenImage" class="img-fluid full-page-img" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,420 @@
+/* Root Colors and Gradients */
+:root {
+    --main-bg: #092834;
+    --secondary-bg: #347B98;
+    --highlight-color: #FC7307;
+    --accent-light: #F0F7D4;
+    --brand-blue: #537fbe;
+    --brand-red: #ea433b;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, var(--main-bg), #1a3a54);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Brand Styling */
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif; /* Main font for brand */
+    font-size: 3rem; /* Large font size for prominence */
+    font-weight: 800; /* Bold weight for impact */
+    color: #EA433B; /* Crimson Red */
+    text-transform: uppercase; /* Uppercase for a strong presence */
+    letter-spacing: 2px; /* Spacing for clarity */
+    position: relative;
+    padding: 10px 0;
+}
+
+/* Slogan Styling */
+.navbar-brand .slogan {
+    font-family: 'Open Sans', sans-serif; /* Slogan font */
+    font-size: 1.5rem; /* Smaller but prominent */
+    font-weight: 400; /* Normal weight for contrast */
+    color: #FFAB40; /* Golden Yellow */
+    display: block; /* Display as block for proper spacing */
+    text-align: center; /* Centered for balance */
+    margin-top: 5px; /* Space between title and slogan */
+}
+
+/* Hover Effect */
+.navbar-brand:hover {
+    color: #537FBE; /* Change to Sky Blue on hover */
+}
+
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+    font-family: 'Roboto', sans-serif; /* Font for navbar links */
+    font-size: 1.1rem; /* Slightly larger font size */
+    font-weight: 600; /* Thicker font weight */
+    color: #FFFFFF; /* White text for better contrast */
+    padding: 10px 15px; /* Padding for clickable area */
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FFAB40; /* Orange color on hover */
+    text-shadow: 0 0 5px #FFAB40; /* Soft shadow on hover */
+}
+
+.navbar-nav .active .nav-link {
+    color: #EA433B; /* Crimson Red for active link */
+    font-weight: 700; /* Extra bold for the active link */
+}
+
+
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+    font-size: 1.1rem; /* Slightly larger font size */
+    font-weight: 600; /* Thicker font weight */
+    color: #ffffff; /* White text for better contrast */
+    padding: 10px 15px; /* Padding for clickable area */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffab40; /* Orange color on hover */
+    text-shadow: 0 0 5px #ffab40; /* Orange shadow on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.navbar-nav .active .nav-link {
+    color: #F0F7D4; /* Light color for active link */
+    font-weight: 700; /* Extra bold for the active link */
+}
+
+
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+    font-size: 1.1rem;  /* Slightly larger font size */
+    font-weight: 600;  /* Thicker font weight */
+    color: #072C3B;       /* Darker color for better contrast */
+    padding: 10px 15px; /* Additional padding for clickable area */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #EDF2D9;  /* Red color on hover */
+    text-shadow: 0px 0px 5px rgba(234, 67, 59, 0.8);
+    transform: scale(1.05);  /* Slight scale effect on hover */
+}
+
+.navbar-nav .active .nav-link {
+    color: #537fbe;  /* Blue color for active link */
+    font-weight: 700;  /* Extra bold for the active link */
+}
+
+
+/* Responsive Navbar Styling for Mobile */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
+}
+
+
+/* Container Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: var(--secondary-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Typography */
+h2 {
+    color: var(--accent-light);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* Carousel */
+.carousel-item img {
+    height: 80vh;
+    object-fit: cover;
+    margin: 2vh 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.03);
+}
+
+.carousel-caption {
+    background: rgba(252, 115, 7, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+/* Button Styles */
+.btn {
+    margin: 5px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    background: linear-gradient(135deg, #FC7307, #ff9f5b);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #5f3a1b;
+    transform: translateY(-3px);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Modal with Fade-In Effect */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #FE2712;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+/* Additional Creative Effects */
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #1b4b61;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    text-align: center;
+    padding: 15px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #FC7307;
+}
+
+/* Links */
+a.change-password-link {
+    color: #FE2712;
+    text-decoration: none;
+}
+
+a.change-password-link:hover {
+    color: #ff3411;
+    text-decoration: underline;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #ea433b, #537fbe); /* Red to blue gradient */
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #F0F7D4;
+}
+
+/* Navbar Links */
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    position: relative;
+}
+
+.navbar-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #F0F7D4;
+}
+
+/* Animated Underline */
+.navbar-nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #F0F7D4;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.navbar-nav a:hover::after {
+    width: 100%;
+}
+
+/* Active Link Indicator */
+.navbar-nav .active a {
+    color: #F0F7D4;
+    font-weight: bold;
+}
+
+.navbar-nav .active a::after {
+    width: 100%;
+}
+
+/* Search Bar Styling */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-search input {
+    padding: 8px 40px 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    font-size: 0.9rem;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-search input:focus {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-search-icon {
+    position: absolute;
+    right: 10px;
+    color: #ea433b;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar-search-icon:hover {
+    color: #ff674d;
+}
+
+/* Responsive Navigation Bar for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar-search {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+.btn-custom {
+    background-color: #28a745; /* Green color */
+    color: white; /* Text color */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 1.2rem; /* Font size */
+}
